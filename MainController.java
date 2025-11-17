@@ -4,7 +4,6 @@ import java.awt.*;
 public class MainController extends JFrame {
     private Observer observer;
 
-    // --- NEW: separate message areas ---
     private JTextArea controllerArea;
     private JTextArea helicopterArea;
     private JTextArea tankArea;
