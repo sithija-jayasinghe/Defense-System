@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Observer {
-
     private List<Observable> observables;
     private MainController mainController;
 
@@ -26,9 +25,21 @@ public class Observer {
         return observables;
     }
 
-    public void update(String defenseType, int strengthValue) {
+    public void notifyStrengthChange(Strength strength) {
         if (mainController != null) {
-            mainController.receiveUpdate(defenseType, strengthValue);
+            mainController.broadcastStrength(strength);
+        }
+    }
+
+    public void notifyAreaMessage(String defenseType, String message) {
+        if (mainController != null) {
+            mainController.relayAreaMessage(defenseType, message);
+        }
+    }
+
+    public void notifyGlobalMessage(String message) {
+        if (mainController != null) {
+            mainController.broadcastMessage(message);
         }
     }
 }
